@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashxfree.github.io/news/article-101189.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nginx与V2Ray融合部署全攻略：构建高效安全的网络代理系统</title>
+        <meta name="description" content="在当前互联网环境中，网络自由与信息安全的重要性日益凸显。对于希望穿越信息壁垒、保障数据传输安全的用户而言，构建一个稳定、高效、隐蔽的代理系统至关重要。Nginx与V2Ray的组合，正是这一需求下的强力" />
+        <link rel="icon" href="/assets/website/img/clashmihomo/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashX Free 中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashxfree.github.io/news/article-101189.htm" />
+    <meta property="og:site_name" content="ClashX Free 中文网" />
+    <meta property="og:title" content="Nginx与V2Ray融合部署全攻略：构建高效安全的网络代理系统" />
+    <meta property="og:image" content="https://clashxfree.github.io/uploads/20240920-1/b85017d470a4b62fe6bd085f35865ade.webp" />
+        <meta property="og:release_date" content="2025-04-22T08:20:49" />
+    <meta property="og:updated_time" content="2025-04-22T08:20:49" />
+        <meta property="og:description" content="在当前互联网环境中，网络自由与信息安全的重要性日益凸显。对于希望穿越信息壁垒、保障数据传输安全的用户而言，构建一个稳定、高效、隐蔽的代理系统至关重要。Nginx与V2Ray的组合，正是这一需求下的强力" />
+        
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/animate/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/kitecx-icons/style.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/twentytwenty/twentytwenty.css" />
+    <!-- template styles -->
+    <link rel="stylesheet" href="/assets/website/css/clashmihomo/kitecx.css" />
+    <link rel="stylesheet" href="/assets/website/css/clashmihomo/kitecx-responsive.css" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Nginx与V2Ray融合部署全攻略：构建高效安全的网络代理系统">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQ51C018E3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQ51C018E3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="preloader">
+        <img class="preloader__image" width="60" src="assets/images/loader.png" alt="" />
+    </div>
+    <!-- /.preloader -->
+    <div class="page-wrapper">
+                <header class="main-header clearfix">
+            <div class="container">
+                <div class="main-menu-wrapper">
+                    <div class="main-header__logo">
+                                                <a href="/">
+                            <span>ClashX Free</span>
+                        </a>
+                                            </div>
+                    <div class="main-menu-wrapper__bottom">
+                        <nav class="main-menu">
+                            <div class="main-menu__inner">
+                                <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                <ul class="main-menu__list">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                                
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+        <!--Page Header Start-->
+        <section class="page-header" style="background-image: url(/assets/website/img/clashmihomo/backgrounds/page-header-bg.jpg);">
+            <div class="page-header-border"></div>
+            <div class="page-header-border page-header-border-two"></div>
+            <div class="page-header-border page-header-border-three"></div>
+            <div class="page-header-border page-header-border-four"></div>
+            <div class="page-header-border page-header-border-five"></div>
+            <div class="page-header-border page-header-border-six"></div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <h1>Nginx与V2Ray融合部署全攻略：构建高效安全的网络代理系统</h1>
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="/">首页</a></li>
+                        <li><span>/</span></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>/</span></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--Page Header End-->
+        <!--Welcome One Start-->
+        <section class="welcome-one py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail">
+                    
+<p data-start="36" data-end="145" class="">在当前互联网环境中，网络自由与信息安全的重要性日益凸显。对于希望穿越信息壁垒、保障数据传输安全的用户而言，构建一个稳定、高效、隐蔽的代理系统至关重要。<strong data-start="111" data-end="129">Nginx与V2Ray的组合</strong>，正是这一需求下的强力解决方案。</p>
+<p data-start="147" data-end="264" class="">Nginx作为高性能的反向代理服务器，可以为后端服务提供出色的访问管理与流量分发；V2Ray则以灵活的协议支持与强大的流量混淆能力，成为科学上网工具的主力军。将两者结合，不仅能提升代理服务的隐蔽性，还能提供更高的可定制化和部署自由度。</p>
+<p data-start="266" data-end="368" class="">本篇文章将以实践为导向，手把手教你如何在Linux服务器上从零搭建起Nginx+V2Ray架构，涵盖安装步骤、配置细节、调试测试、常见问题等方方面面，帮助你构建一套<strong data-start="348" data-end="360">稳定、安全、灵活</strong>的网络访问系统。</p>
+<hr data-start="370" data-end="373" class="" style="">
+<h2 data-start="375" data-end="400" class="">一、初识Nginx与V2Ray：从原理到实践</h2>
+<h3 data-start="402" data-end="415" class="">什么是Nginx？</h3>
+<p data-start="417" data-end="531" class="">Nginx（Engine X）是一款轻量级的高性能Web服务器，同时也广泛应用于反向代理、负载均衡、HTTP缓存等场景。相比传统的Apache，Nginx的并发处理能力更强，资源占用更低，因此被广泛用于高并发网站和微服务架构中。</p>
+<p data-start="533" data-end="599" class="">其在科学上网场景中的核心作用是：<strong data-start="549" data-end="598">将客户端请求“伪装”为正常Web流量”，并转发至V2Ray核心服务，实现隐藏通信行为的目的</strong>。</p>
+<h3 data-start="601" data-end="614" class="">什么是V2Ray？</h3>
+<p data-start="616" data-end="736" class="">V2Ray是一个为网络代理设计的开源平台，属于Project V的一部分。它支持多种协议（如VMess、VLESS、Socks、Shadowsocks等），能够高度自定义路由规则、传输方式和混淆手段，适用于需要突破地理或审查限制的网络环境。</p>
+<p data-start="738" data-end="788" class="">结合Nginx使用后，V2Ray的流量可以被隐藏在标准的HTTPS请求中，从而有效避免被识别和封锁。</p>
+<hr data-start="790" data-end="793" class="" style="">
+<h2 data-start="795" data-end="813" class="">二、环境准备：部署前的基础条件</h2>
+<p data-start="815" data-end="838" class="">在部署之前，请确保你的服务器具备以下环境条件：</p>
+<ul data-start="840" data-end="1033">
+<li data-start="840" data-end="878" class="" style="">
+<p data-start="842" data-end="878" class=""><strong data-start="842" data-end="850">操作系统</strong>：建议使用Ubuntu 20.04+或CentOS 7+</p>
+</li>
+<li data-start="879" data-end="907" class="" style="">
+<p data-start="881" data-end="907" class=""><strong data-start="881" data-end="889">权限要求</strong>：拥有root权限或等效sudo权限</p>
+</li>
+<li data-start="908" data-end="952" class="" style="">
+<p data-start="910" data-end="952" class=""><strong data-start="910" data-end="916">域名</strong>：必须拥有一个已备案并已解析到服务器公网IP的域名（用于配置HTTPS）</p>
+</li>
+<li data-start="953" data-end="997" class="" style="">
+<p data-start="955" data-end="997" class=""><strong data-start="955" data-end="964">SSL证书</strong>：推荐使用Let’s Encrypt自动签发（通过Certbot）</p>
+</li>
+<li data-start="998" data-end="1033" class="" style="">
+<p data-start="1000" data-end="1033" class=""><strong data-start="1000" data-end="1013">客户端基础操作能力</strong>：了解Linux基础命令及网络原理者优先</p>
+</li>
+</ul>
+<hr data-start="1035" data-end="1038" class="" style="">
+<h2 data-start="1040" data-end="1062" class="">三、安装Nginx：打下反向代理的基础</h2>
+<h3 data-start="1064" data-end="1079" class="">步骤1：更新系统软件包</h3>
+<pre class="overflow-visible!" data-start="1081" data-end="1128"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo apt update
+sudo apt upgrade -y
+</span></span></code></div></div></pre>
+<h3 data-start="1130" data-end="1147" class="">步骤2：安装Nginx服务</h3>
+<pre class="overflow-visible!" data-start="1149" data-end="1186"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo apt install nginx -y
+</span></span></code></div></div></pre>
+<h3 data-start="1188" data-end="1205" class="">步骤3：启动并设为开机自启</h3>
+<pre class="overflow-visible!" data-start="1207" data-end="1273"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo systemctl start nginx
+sudo systemctl </span><span><span class="hljs-built_in">enable</span></span><span> nginx
+</span></span></code></div></div></pre>
+<p data-start="1275" data-end="1341" class="">安装完成后，可以通过 <code data-start="1286" data-end="1310">http://your_domain.com</code> 验证是否部署成功。如果看到Nginx欢迎页，则表示安装无误。</p>
+<hr data-start="1343" data-end="1346" class="" style="">
+<h2 data-start="1348" data-end="1369" class="">四、安装V2Ray：部署核心代理服务</h2>
+<h3 data-start="1371" data-end="1385" class="">步骤1：获取安装脚本</h3>
+<pre class="overflow-visible!" data-start="1387" data-end="1491"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>bash &lt;(curl -Ls https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install.sh)
+</span></span></code></div></div></pre>
+<p data-start="1493" data-end="1577" class="">该脚本会自动将V2Ray部署至 <code data-start="1509" data-end="1531">/usr/local/bin/v2ray</code>，并生成基础配置文件 <code data-start="1542" data-end="1576">/usr/local/etc/v2ray/config.json</code>。</p>
+<h3 data-start="1579" data-end="1598" class="">步骤2：启动并设置服务开机自启</h3>
+<pre class="overflow-visible!" data-start="1600" data-end="1666"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo systemctl start v2ray
+sudo systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2ray
+</span></span></code></div></div></pre>
+<h3 data-start="1668" data-end="1684" class="">步骤3：验证是否成功运行</h3>
+<pre class="overflow-visible!" data-start="1686" data-end="1725"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo systemctl status v2ray
+</span></span></code></div></div></pre>
+<p data-start="1727" data-end="1758" class="">如果状态为active(running)，说明服务已正常启动。</p>
+<hr data-start="1760" data-end="1763" class="" style="">
+<h2 data-start="1765" data-end="1786" class="">五、配置V2Ray：构建核心通信逻辑</h2>
+<h3 data-start="1788" data-end="1810" class="">修改配置文件（以VMess协议为例）</h3>
+<p data-start="1812" data-end="1819" class="">打开配置文件：</p>
+<pre class="overflow-visible!" data-start="1821" data-end="1875"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo nano /usr/local/etc/v2ray/config.json
+</span></span></code></div></div></pre>
+<p data-start="1877" data-end="1882" class="">示例配置：</p>
+<pre class="overflow-visible!" data-start="1884" data-end="2250"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">json</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-json"><span><span><span class="hljs-punctuation">{</span></span><span>
+  </span><span><span class="hljs-attr">"inbounds"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-punctuation">[</span></span><span><span class="hljs-punctuation">{</span></span><span>
+    </span><span><span class="hljs-attr">"port"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-number">10000</span></span><span><span class="hljs-punctuation">,</span></span><span>
+    </span><span><span class="hljs-attr">"protocol"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-string">"vmess"</span></span><span><span class="hljs-punctuation">,</span></span><span>
+    </span><span><span class="hljs-attr">"settings"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-punctuation">{</span></span><span>
+      </span><span><span class="hljs-attr">"clients"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-punctuation">[</span></span><span><span class="hljs-punctuation">{</span></span><span>
+        </span><span><span class="hljs-attr">"id"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-string">"UUID生成器生成的UUID"</span></span><span><span class="hljs-punctuation">,</span></span><span>
+        </span><span><span class="hljs-attr">"alterId"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-number">0</span></span><span>
+      </span><span><span class="hljs-punctuation">}</span></span><span><span class="hljs-punctuation">]</span></span><span>
+    </span><span><span class="hljs-punctuation">}</span></span><span><span class="hljs-punctuation">,</span></span><span>
+    </span><span><span class="hljs-attr">"streamSettings"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-punctuation">{</span></span><span>
+      </span><span><span class="hljs-attr">"network"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-string">"ws"</span></span><span><span class="hljs-punctuation">,</span></span><span>
+      </span><span><span class="hljs-attr">"wsSettings"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-punctuation">{</span></span><span>
+        </span><span><span class="hljs-attr">"path"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-string">"/v2ray"</span></span><span>
+      </span><span><span class="hljs-punctuation">}</span></span><span>
+    </span><span><span class="hljs-punctuation">}</span></span><span>
+  </span><span><span class="hljs-punctuation">}</span></span><span><span class="hljs-punctuation">]</span></span><span><span class="hljs-punctuation">,</span></span><span>
+  </span><span><span class="hljs-attr">"outbounds"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-punctuation">[</span></span><span><span class="hljs-punctuation">{</span></span><span>
+    </span><span><span class="hljs-attr">"protocol"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-string">"freedom"</span></span><span><span class="hljs-punctuation">,</span></span><span>
+    </span><span><span class="hljs-attr">"settings"</span></span><span><span class="hljs-punctuation">:</span></span><span> </span><span><span class="hljs-punctuation">{</span></span><span><span class="hljs-punctuation">}</span></span><span>
+  </span><span><span class="hljs-punctuation">}</span></span><span><span class="hljs-punctuation">]</span></span><span>
+</span><span><span class="hljs-punctuation">}</span></span><span>
+</span></span></code></div></div></pre>
+<blockquote data-start="2252" data-end="2296">
+<p data-start="2254" data-end="2296" class="">请务必使用真实UUID替换 <code data-start="2268" data-end="2274">"id"</code> 值，可通过命令 <code data-start="2283" data-end="2292">uuidgen</code> 生成。</p>
+</blockquote>
+<p data-start="2298" data-end="2317" class="">保存后，重启V2Ray服务使配置生效：</p>
+<pre class="overflow-visible!" data-start="2319" data-end="2359"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo systemctl restart v2ray
+</span></span></code></div></div></pre>
+<hr data-start="2361" data-end="2364" class="" style="">
+<h2 data-start="2366" data-end="2398" class="">六、配置Nginx：实现WebSocket+TLS隐藏通信</h2>
+<h3 data-start="2400" data-end="2427" class="">步骤1：申请SSL证书（以Certbot为例）</h3>
+<pre class="overflow-visible!" data-start="2429" data-end="2530"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d your_domain.com
+</span></span></code></div></div></pre>
+<p data-start="2532" data-end="2551" class="">完成后，证书会自动配置在Nginx中。</p>
+<h3 data-start="2553" data-end="2572" class="">步骤2：配置Nginx反代规则</h3>
+<p data-start="2574" data-end="2588" class="">编辑Nginx默认站点配置：</p>
+<pre class="overflow-visible!" data-start="2590" data-end="2646"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo nano /etc/nginx/sites-available/default
+</span></span></code></div></div></pre>
+<p data-start="2648" data-end="2678" class="">在 <code data-start="2650" data-end="2661">server {}</code> 块中添加以下location段：</p>
+<pre class="overflow-visible!" data-start="2680" data-end="2937"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">nginx</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-nginx"><span><span><span class="hljs-section">location</span></span><span> /v2ray {
+    </span><span><span class="hljs-attribute">proxy_pass</span></span><span> http://127.0.0.1:10000;
+    </span><span><span class="hljs-attribute">proxy_http_version</span></span><span> </span><span><span class="hljs-number">1</span></span><span>.</span><span><span class="hljs-number">1</span></span><span>;
+    </span><span><span class="hljs-attribute">proxy_set_header</span></span><span> Upgrade </span><span><span class="hljs-variable">$http_upgrade</span></span><span>;
+    </span><span><span class="hljs-attribute">proxy_set_header</span></span><span> Connection </span><span><span class="hljs-string">"upgrade"</span></span><span>;
+    </span><span><span class="hljs-attribute">proxy_set_header</span></span><span> Host </span><span><span class="hljs-variable">$host</span></span><span>;
+    </span><span><span class="hljs-attribute">proxy_cache_bypass</span></span><span> </span><span><span class="hljs-variable">$http_upgrade</span></span><span>;
+}
+</span></span></code></div></div></pre>
+<h3 data-start="2939" data-end="2954" class="">步骤3：验证配置正确性</h3>
+<pre class="overflow-visible!" data-start="2956" data-end="2981"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo nginx -t
+</span></span></code></div></div></pre>
+<h3 data-start="2983" data-end="3003" class="">步骤4：重启Nginx以应用配置</h3>
+<pre class="overflow-visible!" data-start="3005" data-end="3045"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo systemctl restart nginx
+</span></span></code></div></div></pre>
+<p data-start="3047" data-end="3107" class="">至此，你的V2Ray流量将被封装在HTTPS + WebSocket中，通过Nginx反向代理转发，大大提升通信隐蔽性。</p>
+<hr data-start="3109" data-end="3112" class="" style="">
+<h2 data-start="3114" data-end="3129" class="">七、连接测试与客户端配置</h2>
+<p data-start="3131" data-end="3174" class="">使用任意V2Ray客户端（如V2RayN、Shadowrocket等），填写如下配置：</p>
+<ul data-start="3176" data-end="3306">
+<li data-start="3176" data-end="3186" class="" style="">
+<p data-start="3178" data-end="3186" class="">协议：VMess</p>
+</li>
+<li data-start="3187" data-end="3213" class="" style="">
+<p data-start="3189" data-end="3213" class="">地址：你的域名（如 <code data-start="3199" data-end="3212">example.com</code>）</p>
+</li>
+<li data-start="3214" data-end="3231" class="" style="">
+<p data-start="3216" data-end="3231" class="">端口：443（HTTPS默认）</p>
+</li>
+<li data-start="3232" data-end="3245" class="" style="">
+<p data-start="3234" data-end="3245" class="">UUID：与服务器一致</p>
+</li>
+<li data-start="3246" data-end="3262" class="" style="">
+<p data-start="3248" data-end="3262" class="">加密方式：auto或none</p>
+</li>
+<li data-start="3263" data-end="3283" class="" style="">
+<p data-start="3265" data-end="3283" class="">传输协议：WebSocket（ws）</p>
+</li>
+<li data-start="3284" data-end="3297" class="" style="">
+<p data-start="3286" data-end="3297" class="">路径：<code data-start="3289" data-end="3297">/v2ray</code></p>
+</li>
+<li data-start="3298" data-end="3306" class="" style="">
+<p data-start="3300" data-end="3306" class="">TLS：开启</p>
+</li>
+</ul>
+<p data-start="3308" data-end="3342" class="">成功连接后即可正常访问被封锁网站，访问速度与隐蔽性均可满足日常需求。</p>
+<hr data-start="3344" data-end="3347" class="" style="">
+<h2 data-start="3349" data-end="3360" class="">八、常见问题解答</h2>
+<h3 data-start="3362" data-end="3382" class="">Q1：Nginx无法启动怎么办？</h3>
+<p data-start="3384" data-end="3397" class="">使用以下命令查看错误日志：</p>
+<pre class="overflow-visible!" data-start="3399" data-end="3462"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo nginx -t
+sudo </span><span><span class="hljs-built_in">tail</span></span><span> -f /var/log/nginx/error.log
+</span></span></code></div></div></pre>
+<p data-start="3464" data-end="3481" class="">通常是配置语法错误或端口冲突导致。</p>
+<hr data-start="3483" data-end="3486" class="" style="">
+<h3 data-start="3488" data-end="3505" class="">Q2：V2Ray连接失败？</h3>
+<ul data-start="3507" data-end="3588">
+<li data-start="3507" data-end="3523" class="" style="">
+<p data-start="3509" data-end="3523" class="">检查V2Ray配置是否有误；</p>
+</li>
+<li data-start="3524" data-end="3537" class="" style="">
+<p data-start="3526" data-end="3537" class="">确认UUID是否匹配；</p>
+</li>
+<li data-start="3538" data-end="3554" class="" style="">
+<p data-start="3540" data-end="3554" class="">检查Nginx是否正确反代；</p>
+</li>
+<li data-start="3555" data-end="3588" class="" style="">
+<p data-start="3557" data-end="3588" class="">查看客户端是否配置WebSocket路径与TLS开启状态正确。</p>
+</li>
+</ul>
+<hr data-start="3590" data-end="3593" class="" style="">
+<h3 data-start="3595" data-end="3609" class="">Q3：证书申请失败？</h3>
+<p data-start="3611" data-end="3636" class="">可能是80端口被占用或DNS未正确解析，建议使用：</p>
+<pre class="overflow-visible!" data-start="3638" data-end="3665"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo lsof -i:80
+</span></span></code></div></div></pre>
+<p data-start="3667" data-end="3679" class="">查找冲突服务并释放端口。</p>
+<hr data-start="3681" data-end="3684" class="" style="">
+<h3 data-start="3686" data-end="3709" class="">Q4：如何卸载V2Ray或Nginx？</h3>
+<pre class="overflow-visible!" data-start="3711" data-end="3859"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]">bash</div><div class="sticky top-9"><div class="absolute end-0 bottom-0 flex h-9 items-center pe-2"><div class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><span class="" data-state="closed"></span><span class="" data-state="closed"></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span><span>sudo apt remove nginx
+sudo bash &lt;(curl -Ls https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
+</span></span></code></div></div></pre>
+<hr data-start="3861" data-end="3864" class="" style="">
+<h2 data-start="3866" data-end="3891" class="">九、总结：强强联手，打造隐蔽性极高的代理系统</h2>
+<p data-start="3893" data-end="3996" class="">通过Nginx的反向代理与TLS加密，结合V2Ray的强大协议支持与传输灵活性，我们可以构建一套几乎无法被识别的网络代理架构。在防封锁、跨地域访问、匿名通信等场景中表现出色，是目前最稳健的科学上网方案之一。</p>
+<p data-start="3998" data-end="4053" class="">这一方案不仅技术先进，而且部署自由、维护方便、扩展性强，是个人用户、中小型团队甚至自建CDN场景下的理想选择。</p>
+<hr data-start="4055" data-end="4058" class="" style="">
+<h2 data-start="4060" data-end="4080" class="">点评：技术深度与实操兼具的部署宝典</h2>
+<p data-start="4082" data-end="4172" class="">本文不仅系统梳理了Nginx与V2Ray的原理与配置逻辑，更以实操角度逐步指导读者完成从服务器环境搭建到客户端调试的全过程。语言简洁、结构清晰，每一个命令与配置都精准对应真实环境。</p>
+<p data-start="4174" data-end="4242" class="">更难得的是，文章在技术叙述中融入了对网络安全、信息自由的价值思考，让这篇指南不止于“工具教学”，更成为了数字公民构建网络主权的实战启蒙。</p>
+<p data-start="4244" data-end="4282" class="">当下，连接世界的能力从未如此重要，而这一方案，就是你在数字长城面前的通行证。</p>                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-101188.htm">Shadowrocket无法连接？详细解决方案与排查指南</a></p>
+                                        <p>下一个：<a href="/news/article-101936.htm">流量科学上网是否会导致大规模流量消耗？全面解析与节流策略</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-101189.htm" title="Nginx与V2Ray融合部署全攻略：构建高效安全的网络代理系统">Nginx与V2Ray融合部署全攻略：构建高效安全的网络代理系统</a></li>
+                        <li class="py-2"><a href="/news/article-93800.htm" title="解锁自由网络世界：深入解析 au68u 科学上网工具的全面应用指南">解锁自由网络世界：深入解析 au68u 科学上网工具的全面应用指南</a></li>
+                        <li class="py-2"><a href="/news/article-100575.htm" title="深度指南：全面掌握二爷v2ray，实现安全高效的科学上网之道">深度指南：全面掌握二爷v2ray，实现安全高效的科学上网之道</a></li>
+                        <li class="py-2"><a href="/news/article-97570.htm" title="iOS12系统无法正常使用Shadowrocket？全面解析原因与实用解决方案">iOS12系统无法正常使用Shadowrocket？全面解析原因与实用解决方案</a></li>
+                        <li class="py-2"><a href="/news/article-95385.htm" title="手把手教你将 Clash 安装到电视上：超详细图文指南">手把手教你将 Clash 安装到电视上：超详细图文指南</a></li>
+                        <li class="py-2"><a href="/news/article-97569.htm" title="打开通往自由网络的大门：温柔云V2Ray 完全使用指南（安装、配置与优化全流程）">打开通往自由网络的大门：温柔云V2Ray 完全使用指南（安装、配置与优化全流程）</a></li>
+                        <li class="py-2"><a href="/news/article-98320.htm" title="完全解决Clash节点Time Out问题的终极指南">完全解决Clash节点Time Out问题的终极指南</a></li>
+                        <li class="py-2"><a href="/news/article-99008.htm" title="安卓V2Ray：用途与配置详解，助你实现自由上网">安卓V2Ray：用途与配置详解，助你实现自由上网</a></li>
+                        <li class="py-2"><a href="/news/article-99808.htm" title="vmess 一键脚本全攻略：从零开始搭建你的专属科学上网服务">vmess 一键脚本全攻略：从零开始搭建你的专属科学上网服务</a></li>
+                        <li class="py-2"><a href="/news/article-96858.htm" title="手机上使用V2ray的完整指南：安装、配置与常见问题解答">手机上使用V2ray的完整指南：安装、配置与常见问题解答</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Welcome One End-->
+    </div><!-- /.page-wrapper -->
+        <footer class="site-footer">
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="site-footer-bottom__inner">
+                            <div class="site-footer-bottom__left">
+                                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                <p>
+                                    <a href="/">ClashX Free 中文网</a> 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                            <ul class="site-footer-bottom__menu list-unstyled">
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms of Condition</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"></span>
+            <div class="logo-box">
+                <a href="/" aria-label="logo image">Clash Mihomo</a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+    <div class="side-menu__block">
+        <div class="side-menu__block-overlay custom-cursor__overlay side-menu__toggler">
+            <div class="cursor"></div>
+            <div class="cursor-follower"></div>
+        </div><!-- /.side-menu__block-overlay -->
+        <div class="side-menu__block-inner ">
+            <p class="side-menu__block__text site-footer__copy-text">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+        </div><!-- /.side-menu__block-inner -->
+    </div><!-- /.side-menu__block -->
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jarallax/jarallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-appear/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/nouislider/nouislider.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/odometer/odometer.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/swiper/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/tiny-slider/tiny-slider.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/wnumb/wNumb.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/wow/wow.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/isotope/isotope.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/countdown/countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/twentytwenty/twentytwenty.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/twentytwenty/jquery.event.move.js"></script>
+    <script src="http://ditu.google.cn/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
+    <!-- template js -->
+    <script src="/assets/website/js/frontend/clashmihomo/kitecx.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
