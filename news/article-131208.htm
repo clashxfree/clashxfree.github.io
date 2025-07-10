@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashxfree.github.io/news/article-131208.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>突破网络枷锁：全面剖析V2Ray速度瓶颈与高效优化策略</title>
+        <meta name="description" content="在当今数字化时代，网络自由已成为许多网民的基本需求。作为一款功能强大的开源代理工具，V2Ray凭借其卓越的隐私保护能力和灵活的配置选项，赢得了全球范围内众多用户的青睐。然而，许多使用者在实际应用过程中" />
+        <link rel="icon" href="/assets/website/img/clashmihomo/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashX Free 中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashxfree.github.io/news/article-131208.htm" />
+    <meta property="og:site_name" content="ClashX Free 中文网" />
+    <meta property="og:title" content="突破网络枷锁：全面剖析V2Ray速度瓶颈与高效优化策略" />
+    <meta property="og:image" content="https://clashxfree.github.io/uploads/20240920-1/79b0d6e83dbda51f6310fec66717d2b0.webp" />
+        <meta property="og:release_date" content="2025-07-06T08:30:31" />
+    <meta property="og:updated_time" content="2025-07-06T08:30:31" />
+        <meta property="og:description" content="在当今数字化时代，网络自由已成为许多网民的基本需求。作为一款功能强大的开源代理工具，V2Ray凭借其卓越的隐私保护能力和灵活的配置选项，赢得了全球范围内众多用户的青睐。然而，许多使用者在实际应用过程中" />
+        
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/animate/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/kitecx-icons/style.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/assets/website/js/frontend/clashmihomo/twentytwenty/twentytwenty.css" />
+    <!-- template styles -->
+    <link rel="stylesheet" href="/assets/website/css/clashmihomo/kitecx.css" />
+    <link rel="stylesheet" href="/assets/website/css/clashmihomo/kitecx-responsive.css" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="突破网络枷锁：全面剖析V2Ray速度瓶颈与高效优化策略">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQ51C018E3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQ51C018E3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="preloader">
+        <img class="preloader__image" width="60" src="assets/images/loader.png" alt="" />
+    </div>
+    <!-- /.preloader -->
+    <div class="page-wrapper">
+                <header class="main-header clearfix">
+            <div class="container">
+                <div class="main-menu-wrapper">
+                    <div class="main-header__logo">
+                                                <a href="/">
+                            <span>ClashX Free</span>
+                        </a>
+                                            </div>
+                    <div class="main-menu-wrapper__bottom">
+                        <nav class="main-menu">
+                            <div class="main-menu__inner">
+                                <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                <ul class="main-menu__list">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                                
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+        <!--Page Header Start-->
+        <section class="page-header" style="background-image: url(/assets/website/img/clashmihomo/backgrounds/page-header-bg.jpg);">
+            <div class="page-header-border"></div>
+            <div class="page-header-border page-header-border-two"></div>
+            <div class="page-header-border page-header-border-three"></div>
+            <div class="page-header-border page-header-border-four"></div>
+            <div class="page-header-border page-header-border-five"></div>
+            <div class="page-header-border page-header-border-six"></div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <h1>突破网络枷锁：全面剖析V2Ray速度瓶颈与高效优化策略</h1>
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="/">首页</a></li>
+                        <li><span>/</span></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>/</span></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--Page Header End-->
+        <!--Welcome One Start-->
+        <section class="welcome-one py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      <p>在当今数字化时代，网络自由已成为许多网民的基本需求。作为一款功能强大的开源代理工具，V2Ray凭借其卓越的隐私保护能力和灵活的配置选项，赢得了全球范围内众多用户的青睐。然而，许多使用者在实际应用过程中常常遭遇速度受限的困扰，这不仅影响了浏览体验，更可能严重阻碍工作效率。本文将系统性地解析V2Ray速度限制的深层原因，并提供一系列经过验证的优化方案，帮助您突破网络枷锁，享受流畅的上网体验。</p>  <h2>V2Ray技术概览与核心价值</h2>  <p>V2Ray是一款设计精良的网络代理软件，其诞生源于对网络自由的追求。与传统的VPN技术相比，V2Ray采用了更为先进的架构设计，支持包括VMess、Shadowsocks、Socks等多种协议，能够有效规避网络审查机制的检测。它的核心优势在于模块化设计和高度可定制性，用户可以根据自身网络环境和使用需求，灵活调整各项参数，实现最优的网络性能表现。</p>  <p>值得注意的是，V2Ray并非简单的"翻墙"工具，而是一个完整的网络通信平台。它内置了路由功能、流量伪装机制和多协议支持，使其在对抗深度包检测(DPI)方面表现出色。正是这些复杂而精密的设计，使得V2Ray在特定网络环境下可能面临性能挑战，需要我们深入理解其工作原理才能充分发挥其潜力。</p>  <h2>速度限制的多维度成因分析</h2>  <h3>服务器端因素：基础设施的关键作用</h3>  <p>服务器质量无疑是影响V2Ray性能的首要因素。许多用户为了节省成本而选择廉价的VPS服务，却不知这正是速度受限的罪魁祸首。低质量的服务器通常存在CPU性能不足、内存资源紧张、网络带宽共享等问题，当多个用户同时使用时，性能便会急剧下降。此外，服务器的物理位置也至关重要——距离用户越远，网络延迟自然越高。选择位于网络枢纽地区（如香港、新加坡、日本等）的优质服务器，往往能获得更稳定的连接质量。</p>  <h3>网络环境：不可忽视的外部变量</h3>  <p>即使用户拥有顶级配置的V2Ray服务器，本地网络环境的限制仍可能成为性能瓶颈。家庭宽带的实际带宽、Wi-Fi信号强度、路由器性能等因素都会直接影响代理速度。特别是在使用公共网络时，网络管理员可能对特定类型的流量进行限速或干扰，这需要更为巧妙的流量伪装技术来应对。此外，不同ISP（互联网服务提供商）对国际出口带宽的分配策略差异巨大，这也是为什么同一服务器在不同地区用户手中表现迥异的原因。</p>  <h3>配置艺术：细节决定成败</h3>  <p>V2Ray的配置文件看似复杂，实则每一行代码都可能影响最终性能。常见的配置失误包括：选择了加密强度过高但计算密集的算法（如AES-256-GCM）、设置了不合理的MTU值导致数据包分片、启用了不必要的功能模块增加系统开销等。传输协议的选择也大有讲究——WebSocket因其与HTTP流量相似而更易穿透防火墙，但原始TCP协议在纯净网络环境下可能提供更低的延迟。理解这些技术细节，才能避免"自缚手脚"的配置错误。</p>  <h3>时间维度：网络流量的潮汐现象</h3>  <p>网络拥堵具有明显的时段性特征，就像城市交通的早晚高峰。当大量用户同时使用国际出口带宽时（通常发生在晚间7-11点），即使是最好的服务器也可能面临速度下降。这种现象在节假日期间尤为明显。精明的用户会通过流量监控了解自己所在地区的网络规律，避开高峰时段进行大流量操作，或准备多条备用线路应对突发拥堵。</p>  <h2>系统化优化方案：从理论到实践</h2>  <h3>服务器选择与部署策略</h3>  <p>优质服务器的甄选是一门学问。除了关注表面参数如带宽大小和价格外，更应重视实际测试数据。专业的网络测速工具如PingPeach或LibreSpeed可以提供多节点的延迟和丢包率测试，帮助用户全面评估服务器质量。对于技术娴熟的用户，建议部署BBR拥塞控制算法，这种由Google开发的技术能显著提升TCP连接在高延迟、高丢包网络中的吞吐量。多服务器负载均衡是另一个进阶方案，通过DNS轮询或特定路由规则，将流量智能分配到最优线路上。</p>  <h3>配置优化的黄金法则</h3>  <p>精简而高效的配置是V2Ray性能优化的核心。以下是一些经过验证的最佳实践： - 在保证安全的前提下，选择计算开销较小的加密方式（如Chacha20-Poly1305） - 根据网络条件动态调整MTU值，通常设置在1200-1500之间 - 启用Mux多路复用功能，减少连接建立的开销 - 针对移动网络环境，适当调整心跳间隔以减少电池消耗 - 使用SNI伪装等技术使V2Ray流量看起来像普通HTTPS流量</p>  <p>这些调整看似微小，但累积效应往往能带来显著的性能提升。值得强调的是，配置优化是一个持续的过程，需要根据网络环境的变化不断调整和测试。</p>  <h3>客户端环境的全面调优</h3>  <p>服务器端优化固然重要，但客户端环境同样不可忽视。现代操作系统都内置了网络参数调节功能，适当调整TCP窗口大小、启用TCP快速打开等功能都能改善代理体验。对于Windows用户，建议使用TCPOptimizer等工具进行系统级优化；macOS用户则可通过终端命令调整网络堆栈参数。此外，客户端的防火墙设置也应仔细检查，确保不会误拦截V2Ray的正常通信。</p>  <h2>监测与诊断：科学评估网络性能</h2>  <h3>专业工具的应用艺术</h3>  <p>网络诊断工具是优化过程中不可或缺的助手。Ping命令虽然基础，但通过添加"-t"参数进行持续测试，能够发现偶发的网络波动；Traceroute则可以揭示流量路径中的问题节点，帮助用户判断是服务器问题还是中间网络的问题。更为专业的iperf3工具能够进行精确的带宽测试，区分TCP和UDP性能差异。对于图形化界面爱好者，Wireshark提供的协议分析功能可以深入洞察每一个数据包的传输细节。</p>  <h3>日志分析的实用技巧</h3>  <p>V2Ray生成的访问日志和错误日志是发现问题的金矿。通过分析日志中的时间戳、错误代码和流量统计，用户可以准确识别连接中断、认证失败或路由错误等问题。建议将日志级别设置为"debug"进行详细记录，但注意长期开启会影响性能，仅建议在排查问题时使用。日志分析工具如GoAccess可以将枯燥的文本日志转化为直观的图表，大幅提高诊断效率。</p>  <h2>替代方案与比较分析</h2>  <p>虽然V2Ray功能强大，但它并非适用于所有场景。在某些特殊网络环境下，其他代理工具可能表现更佳。Shadowsocks以其简洁高效著称，特别适合低功耗设备；Trojan则通过完美模仿HTTPS流量，在某些严格审查的网络中表现优异。新兴的NaiveProxy利用Chrome网络栈实现高度伪装，在对抗深度包检测方面展现出独特优势。明智的用户会根据实际需求建立多工具并用的策略，而非固守单一解决方案。</p>  <p>与传统VPN相比，V2Ray在抗审查和性能优化方面具有明显优势，但设置复杂度也显著提高。商业VPN提供的一键连接确实方便，但牺牲了定制性和透明度。技术爱好者往往更青睐V2Ray这种开源方案，因为它不存在"黑箱操作"的担忧，且社区持续提供的创新功能使其始终保持在技术前沿。</p>  <h2>总结与前瞻性思考</h2>  <p>通过对V2Ray速度限制问题的全面剖析，我们可以清晰地认识到：网络性能优化是一项系统工程，需要从服务器选择、网络环境、配置参数、使用习惯等多个维度协同发力。没有任何单一的"银弹"能够解决所有问题，持续的学习、测试和调整才是保持最佳性能的关键。</p>  <p>随着网络审查技术的不断进化，V2Ray及其生态也在持续发展。近期发布的V2Ray 5.0版本在性能方面做出了多项改进，包括更高效的多路复用实现和精简的协议设计。社区开发的XTLS等创新技术进一步降低了加密开销，为速度敏感型应用提供了新的可能。展望未来，随着QUIC协议的普及和新型伪装技术的成熟，我们有理由相信V2Ray将在保持隐私保护能力的同时，提供接近原生网络的流畅体验。</p>  <p><strong>精彩点评</strong>：本文深入浅出地揭示了V2Ray性能优化的奥秘，将复杂的技术概念转化为可操作的实用建议。不同于网络上泛泛而谈的"教程"，本文从工程实践角度出发，构建了一套系统化的优化方法论。特别值得称道的是对"网络潮汐现象"的洞察和"配置艺术"的提法，这些生动的比喻使枯燥的技术讨论变得引人入胜。文章不仅提供了即时的解决方案，更培养了读者分析问题和持续优化的能力，这种"授人以渔"的写作理念体现了作者深厚的技术功底和教学智慧。在数字权利日益受到重视的今天，这样兼具技术深度和实用价值的内容尤为珍贵。</p>                 </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-130864.htm">突破网络限制：v2rayng搭配SSR的终极配置指南</a></p>
+                                        <p>下一个：<a href="/news/article-131560.htm">突破网络限制：V2Ray APK 1.3全面指南与深度体验</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-130158.htm" title="3元解锁网络自由：V2Ray试用全攻略与高阶配置秘籍">3元解锁网络自由：V2Ray试用全攻略与高阶配置秘籍</a></li>
+                        <li class="py-2"><a href="/news/article-127736.htm" title="全球互联网自由畅行：全方位科学上网设置终极指南">全球互联网自由畅行：全方位科学上网设置终极指南</a></li>
+                        <li class="py-2"><a href="/news/article-132709.htm" title="极路由科学上网全攻略：从原理到实战的深度解析">极路由科学上网全攻略：从原理到实战的深度解析</a></li>
+                        <li class="py-2"><a href="/news/article-131208.htm" title="突破网络枷锁：全面剖析V2Ray速度瓶颈与高效优化策略">突破网络枷锁：全面剖析V2Ray速度瓶颈与高效优化策略</a></li>
+                        <li class="py-2"><a href="/news/article-132261.htm" title="解锁网络自由：每日更新的免费Clash节点全方位指南">解锁网络自由：每日更新的免费Clash节点全方位指南</a></li>
+                        <li class="py-2"><a href="/news/article-126736.htm" title="突破网络限制的终极利器：Clash Tun热点配置与使用全攻略">突破网络限制的终极利器：Clash Tun热点配置与使用全攻略</a></li>
+                        <li class="py-2"><a href="/news/article-129113.htm" title="轻松掌握Clash安卓订阅地址配置：从入门到精通的完整指南">轻松掌握Clash安卓订阅地址配置：从入门到精通的完整指南</a></li>
+                        <li class="py-2"><a href="/news/article-124428.htm" title="终极解决方案：彻底修复Clash无法正常使用的完整指南">终极解决方案：彻底修复Clash无法正常使用的完整指南</a></li>
+                        <li class="py-2"><a href="/news/article-127400.htm" title="全面解析梦云V2Ray机场：从入门到精通的完整指南">全面解析梦云V2Ray机场：从入门到精通的完整指南</a></li>
+                        <li class="py-2"><a href="/news/article-128080.htm" title="深度揭秘v2ray伪装IP：从原理到实战的全方位指南">深度揭秘v2ray伪装IP：从原理到实战的全方位指南</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2025-07/" title="2025-07 归档">2025-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-06/" title="2025-06 归档">2025-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Welcome One End-->
+    </div><!-- /.page-wrapper -->
+        <footer class="site-footer">
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="site-footer-bottom__inner">
+                            <div class="site-footer-bottom__left">
+                                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                <p>
+                                    <a href="/">ClashX Free 中文网</a> 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                            <ul class="site-footer-bottom__menu list-unstyled">
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms of Condition</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"></span>
+            <div class="logo-box">
+                <a href="/" aria-label="logo image">Clash Mihomo</a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+    <div class="side-menu__block">
+        <div class="side-menu__block-overlay custom-cursor__overlay side-menu__toggler">
+            <div class="cursor"></div>
+            <div class="cursor-follower"></div>
+        </div><!-- /.side-menu__block-overlay -->
+        <div class="side-menu__block-inner ">
+            <p class="side-menu__block__text site-footer__copy-text">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+        </div><!-- /.side-menu__block-inner -->
+    </div><!-- /.side-menu__block -->
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jarallax/jarallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-appear/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/nouislider/nouislider.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/odometer/odometer.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/swiper/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/tiny-slider/tiny-slider.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/wnumb/wNumb.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/wow/wow.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/isotope/isotope.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/countdown/countdown.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/twentytwenty/twentytwenty.js"></script>
+    <script src="/assets/website/js/frontend/clashmihomo/twentytwenty/jquery.event.move.js"></script>
+    <script src="http://ditu.google.cn/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
+    <!-- template js -->
+    <script src="/assets/website/js/frontend/clashmihomo/kitecx.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
