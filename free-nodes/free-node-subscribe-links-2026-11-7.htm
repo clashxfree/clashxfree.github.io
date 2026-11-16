@@ -337,19 +337,9 @@ A5：部分版本支持自动切换机制，也可通过规则定义备用节点
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何实现按域名分流？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
     <div class="panel-body">
-        PassWall2 可通过域名规则匹配请求，将流量分流至指定节点。结合策略组和自动测速，可让不同网站走不同节点，实现加速和优化访问速度的效果。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何针对不同用户设置流量配额？</h5></div>
-    <div class="panel-body">
-        管理员可以为每个用户单独设置流量上限或带宽限制。超过配额时可自动阻止或降速，保证服务器资源合理分配，避免单用户占用过多带宽影响其他用户。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 可以与 Shadowsocks 等客户端同时使用吗？</h5></div>
-    <div class="panel-body">
-        可以。Nekobox 配置独立，与 Shadowsocks、Clash 等客户端互不干扰。用户可根据需要通过策略组选择节点，实现灵活的网络管理和分流策略。<hr />    </div>
+        在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的本地 PAC 模式与全局模式有什么区别？</h5></div>
@@ -357,19 +347,9 @@ A5：部分版本支持自动切换机制，也可通过规则定义备用节点
         PAC 模式通过规则文件自动判定哪些域名走代理，能兼顾速度与便利；全局模式则所有流量都通过代理，适合调试或访问被完全屏蔽的网络。两者可在界面一键切换，根据需求灵活选择。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 如何分流多协议流量？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 如何实现按域名分流？</h5></div>
     <div class="panel-body">
-        Nekobox 可以同时管理 Shadowsocks、VMess、Trojan 等多协议节点，通过策略组将不同流量分配到指定节点，实现精准分流，提高网络效率和管理便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
-    <div class="panel-body">
-        在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 如何降低移动网络延迟？</h5></div>
-    <div class="panel-body">
-        XTLS 通过减少握手次数和加密开销降低延迟。结合策略组和多节点切换，可在高延迟或不稳定的移动网络环境中保持连接稳定，提升网页浏览、视频和游戏体验流畅度。<hr />    </div>
+        PassWall2 可通过域名规则匹配请求，将流量分流至指定节点。结合策略组和自动测速，可让不同网站走不同节点，实现加速和优化访问速度的效果。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekobox 可以自定义路由规则吗？</h5></div>
@@ -377,14 +357,34 @@ A5：部分版本支持自动切换机制，也可通过规则定义备用节点
         支持。用户可通过界面或配置文件定义路由规则，按域名、IP 或端口匹配不同节点，实现流量分流。自定义规则增强了网络访问灵活性和安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 可以与 Shadowsocks 等客户端同时使用吗？</h5></div>
+    <div class="panel-body">
+        可以。Nekobox 配置独立，与 Shadowsocks、Clash 等客户端互不干扰。用户可根据需要通过策略组选择节点，实现灵活的网络管理和分流策略。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 如何针对不同用户设置流量配额？</h5></div>
+    <div class="panel-body">
+        管理员可以为每个用户单独设置流量上限或带宽限制。超过配额时可自动阻止或降速，保证服务器资源合理分配，避免单用户占用过多带宽影响其他用户。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么不同？</h5></div>
+    <div class="panel-body">
+        Nekoray 是一款基于 Qt 的跨平台代理前端，而 Nekobox 更偏向移动端简化使用。两者均支持 V2Ray/VLESS/Trojan 协议，但 Nekobox 提供了更轻量的界面和更快的连接启动速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 连接不稳定的常见原因有哪些？</h5></div>
     <div class="panel-body">
         VMess 连接不稳定可能由节点延迟过高、服务器防火墙、TLS 配置错误或 ISP 丢包引起。建议测试不同传输协议（如 WS、gRPC）或切换节点，检查日志确认具体错误信息。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么不同？</h5></div>
+    <div class="panel-heading"><h5>Nekobox 如何分流多协议流量？</h5></div>
     <div class="panel-body">
-        Nekoray 是一款基于 Qt 的跨平台代理前端，而 Nekobox 更偏向移动端简化使用。两者均支持 V2Ray/VLESS/Trojan 协议，但 Nekobox 提供了更轻量的界面和更快的连接启动速度。    </div>
+        Nekobox 可以同时管理 Shadowsocks、VMess、Trojan 等多协议节点，通过策略组将不同流量分配到指定节点，实现精准分流，提高网络效率和管理便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 如何降低移动网络延迟？</h5></div>
+    <div class="panel-body">
+        XTLS 通过减少握手次数和加密开销降低延迟。结合策略组和多节点切换，可在高延迟或不稳定的移动网络环境中保持连接稳定，提升网页浏览、视频和游戏体验流畅度。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -432,16 +432,16 @@ A5：部分版本支持自动切换机制，也可通过规则定义备用节点
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-11-6-vless-windows.htm" title="ClashX Free | 11月6日20M/S|免费SSR节点/Shadowrocket节点/V2ray节点/Clash节点/Trojan节点/Singbox节点订阅节点">ClashX Free | 11月6日20M/S|免费SSR节点/Shadowrocket节点/V2ray节点/Clash节点/Trojan节点/Singbox节点订阅节点</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-vless-node-2026-10-31.htm" title="ClashX Free | 10月31日20.5M/S|免费Singbox节点/Clash节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点订阅节点">ClashX Free | 10月31日20.5M/S|免费Singbox节点/Clash节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点订阅节点</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-18-vless-windows.htm" title="ClashX Free | 10月18日22.7M/S|免费SSR节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点/Singbox节点订阅节点">ClashX Free | 10月18日22.7M/S|免费SSR节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点/Singbox节点订阅节点</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-11-5.htm" title="ClashX Free | 11月5日18.8M/S|免费SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点订阅节点">ClashX Free | 11月5日18.8M/S|免费SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点订阅节点</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-4-vless-node-github.htm" title="ClashX Free | 11月4日19.3M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/Clash节点订阅节点">ClashX Free | 11月4日19.3M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/Clash节点订阅节点</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-11-3.htm" title="ClashX Free | 11月3日19.9M/S|免费Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Trojan节点/Clash节点订阅节点">ClashX Free | 11月3日19.9M/S|免费Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Trojan节点/Clash节点订阅节点</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-22-vless-windows.htm" title="ClashX Free | 10月22日19.7M/S|免费SSR节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点订阅节点">ClashX Free | 10月22日19.7M/S|免费SSR节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点订阅节点</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-23.htm" title="ClashX Free | 10月23日21.2M/S|免费Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点订阅节点">ClashX Free | 10月23日21.2M/S|免费Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点订阅节点</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-8-vless-node-github.htm" title="ClashX Free | 11月8日19.8M/S|免费Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点订阅节点">ClashX Free | 11月8日19.8M/S|免费Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点订阅节点</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-10-14-vless-node-github.htm" title="ClashX Free | 10月14日20M/S|免费Singbox节点/SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Trojan节点订阅节点">ClashX Free | 10月14日20M/S|免费Singbox节点/SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Trojan节点订阅节点</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-11-9.htm" title="ClashX Free | 11月9日20.2M/S|免费Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/SSR节点/Singbox节点订阅节点">ClashX Free | 11月9日20.2M/S|免费Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/SSR节点/Singbox节点订阅节点</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-11-7.htm" title="ClashX Free | 11月7日22.1M/S|免费Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点订阅节点">ClashX Free | 11月7日22.1M/S|免费Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点订阅节点</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-11-2-vless-windows.htm" title="ClashX Free | 11月2日22.9M/S|免费Clash节点/Singbox节点/SSR节点/V2ray节点/Trojan节点/Shadowrocket节点订阅节点">ClashX Free | 11月2日22.9M/S|免费Clash节点/Singbox节点/SSR节点/V2ray节点/Trojan节点/Shadowrocket节点订阅节点</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-10-node-share.htm" title="ClashX Free | 10月10日21.7M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点/Trojan节点订阅节点">ClashX Free | 10月10日21.7M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点/Trojan节点订阅节点</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-16-node-share.htm" title="ClashX Free | 10月16日21.7M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点/Trojan节点订阅节点">ClashX Free | 10月16日21.7M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点/Trojan节点订阅节点</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-vless-node-2026-11-11.htm" title="ClashX Free | 11月11日21M/S|免费V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Trojan节点/Singbox节点订阅节点">ClashX Free | 11月11日21M/S|免费V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Trojan节点/Singbox节点订阅节点</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-vless-node-2026-10-25.htm" title="ClashX Free | 10月25日18.1M/S|免费Clash节点/V2ray节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点订阅节点">ClashX Free | 10月25日18.1M/S|免费Clash节点/V2ray节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点订阅节点</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-24-node-share.htm" title="ClashX Free | 10月24日22.2M/S|免费Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点订阅节点">ClashX Free | 10月24日22.2M/S|免费Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点订阅节点</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -453,7 +453,7 @@ A5：部分版本支持自动切换机制，也可通过规则定义备用节点
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
